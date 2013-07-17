@@ -68,3 +68,7 @@ footer {
     line-height: 0;
     font-weight: normal;
 }
+#site-navigation li {
+    display: inline;
+    padding: 5px;
+}
