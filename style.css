@@ -16,6 +16,9 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: Arial,Verdana, "Helvetica Neue", Helvetica, sans-serif;
 }
 a {
     color: #206ba4;
