@@ -1,8 +1,7 @@
 <?php get_header(); ?>
 <?php get_sidebar(); ?>
 
-    <div id="primary">
-        <div id="content" role="main">
+    <div id="articles" role="main">
         <?php if ( have_posts() ) : ?>
 
             <?php ?>
@@ -37,8 +36,6 @@
             </article>
 
         <?php endif; ?>
-
-        </div>
     </div>
 
 <?php get_footer(); ?>
