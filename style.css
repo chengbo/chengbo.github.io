@@ -60,3 +60,11 @@ footer {
     clear: both;
     text-align: center;
 }
+.site-title {
+    font-size: 30px;
+}
+.site-subtitle {
+    font-size: 12px;
+    line-height: 0;
+    font-weight: normal;
+}
