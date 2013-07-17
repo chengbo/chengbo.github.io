@@ -31,8 +31,7 @@ header {
     margin-right: 10px;
 }
 #articles {
-    margin-right: 310px;
-    margin-left: 10px;
+    margin: 0 310px 60px 10px;
 }
 footer {
     position: relative;
