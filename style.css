@@ -17,6 +17,16 @@ body {
     padding: 0;
     height: 100%;
 }
+a {
+    color: #206ba4;
+    text-decoration: none;
+}
+a:focus,
+a:active,
+a:hover {
+    color: #54a4de;
+    text-decoration: none;
+}
 #container {
     width: 100%;
     min-height: 100%;
