@@ -27,6 +27,12 @@ a:hover {
     color: #54a4de;
     text-decoration: none;
 }
+ul {
+    padding: 0;
+}
+li {
+    list-style: none;
+}
 #container {
     width: 100%;
     min-height: 100%;
