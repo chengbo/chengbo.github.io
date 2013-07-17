@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<?php get_sidebar(); ?>
 
     <div id="primary">
         <div id="content" role="main">
@@ -40,5 +41,4 @@
         </div>
     </div>
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
