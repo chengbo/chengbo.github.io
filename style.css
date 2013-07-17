@@ -10,3 +10,35 @@ Tags: white
 License:
 License URI:
 */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+#container {
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+}
+header {
+    margin: 0 10px;
+}
+#sidebar {
+    float: right;
+    width: 300px;
+    margin-right: 10px;
+}
+#articles {
+    margin-right: 310px;
+    margin-left: 10px;
+}
+footer {
+    position: relative;
+    margin-top: -60px;
+    height: 60px;
+    line-height: 60px;
+    clear: both;
+    text-align: center;
+}
