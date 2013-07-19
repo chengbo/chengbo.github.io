@@ -10,6 +10,7 @@
 <!--<![endif]-->
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title><?php bloginfo('name'); ?> <?php wp_title(); ?></title>
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 <link rel="profile" href="http://gmpg.org/xfn/11" />

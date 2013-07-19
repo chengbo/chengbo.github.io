@@ -37,20 +37,20 @@ li {
     list-style: none;
 }
 #container {
-    width: 100%;
+    width: 1160px;
+    margin: 0 auto;
     min-height: 100%;
-    overflow: hidden;
 }
 header {
-    margin: 0 10px;
+    margin: 0;
 }
 #sidebar {
-    float: right;
-    width: 300px;
-    margin-right: 10px;
+    float: left;
+    width: 200px;
 }
 #articles {
-    margin: 0 310px 60px 10px;
+    width: 70%;
+    float: left;
 }
 footer {
     position: relative;
@@ -71,4 +71,22 @@ footer {
 #site-navigation li {
     display: inline;
     padding: 5px;
+}
+@media only screen and (max-width: 1280px) {
+    #container {
+        width: 960px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    #container {
+        width: auto;
+        margin-left: 2.8125%;
+        margin-right: 2.8125%;
+    }
+    #sidebar {
+        float: none;
+    }
+    #articles {
+        width: 100%;
+    }
 }
