@@ -1,0 +1,41 @@
+---
+layout: default
+---
+<article>
+  <header>
+    <h2>{{ page.title }}</h2>
+    <p class="meta">{{ page.date | date_to_string }}</p>
+  </header>
+
+  <section class="post">
+    {{ content }}
+  </section>
+
+  <footer></footer>
+</article>
+
+<script type="text/javascript"><!--
+  google_ad_client = "ca-pub-3855298991072050";
+  /* blog details 728 width */
+  google_ad_slot = "9073747822";
+  google_ad_width = 728;
+  google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+{% if page.comments %}
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = 'chengbo';
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+{% endif %}
