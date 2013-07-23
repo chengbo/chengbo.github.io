@@ -2,4 +2,5 @@ name: Inspiration from life
 link: http://chengbo.github.io
 pygments: true
 permalink: /:year/:month/:day/:title.html
+timezone: Etc./UTC
 markdown: rdiscount
