@@ -175,3 +175,12 @@ ul.posts span {
   list-style-type: none;
   display:inline;
 }
+
+.post_tags ul {
+  display: inline;
+}
+
+.post_tags li {
+  list-style-type: none;
+  display: inline;
+}

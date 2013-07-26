@@ -9,6 +9,16 @@ title: Inspiration from life
   <p class="author">
     <span class="date">{{ post.date }}</span>
   </p>
+  <div class="post_tags">
+    <ul class="tags">
+    {% for tag in post.tags %}
+      {% if forloop.first %}
+      Tags:
+      {% endif %}
+      <li class="tag"><a href="{{ site.link }}/tag/{{ tag | downcase }}">{{ tag }}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
   <div class="content">
     {{ post.content }}
   </div>

@@ -5,6 +5,16 @@ layout: default
   <header>
     <h2>{{ page.title }}</h2>
     <p class="meta">{{ page.date | date_to_string }}</p>
+    <div class="post_tags">
+      <ul class="tags">
+      {% for tag in page.tags %}
+        {% if forloop.first %}
+        Tags:
+        {% endif %}
+        <li class="tag"><a href="{{ site.link }}/tag/{{ tag | downcase }}">{{ tag }}</a></li>
+      {% endfor %}
+      </ul>
+  </div>
   </header>
 
   <section class="post">
