@@ -8,7 +8,7 @@ categories:
 - Android翻译
 tags:
 - Android
-- Android Studio
+- Android-Studio
 - IDE
 ---
 
