@@ -20,15 +20,17 @@ tags:
 
 打开service代码，如下
 
-	public static class UserInfoProcess
-	{
-	  private static DataAccessDataContext db = new DataAccessDataContext();
+```csharp
+public static class UserInfoProcess
+{
+  private static DataAccessDataContext db = new DataAccessDataContext();
 
-	  public static EmployeeInfo GetEmployeeInfoById(string employeeId)
-	  {
-	    return db.EmployeeInfos.SingleOrDefault(c =&gt; c.EmployeeId == employeeId);
-	  }
-	}
+  public static EmployeeInfo GetEmployeeInfoById(string employeeId)
+  {
+    return db.EmployeeInfos.SingleOrDefault(c => c.EmployeeId == employeeId);
+  }
+}
+```
 
 注意，这里的`DataContext`是static的，这里有个问题等会儿说。
 
@@ -49,17 +51,19 @@ MSDN说，`DataContext`只保证它static member的线程安全，而instance me
 
 线程不安全，是怎么体现的呢？我用reflector里反编译了`EmployeeInfos`属性，下面摘一点重要的出来
 
-    private ITable GetTable(MetaTable metaTable)
-    {
-	  ITable table;
-	  if (!this.tables.TryGetValue(metaTable, out table))
-	  {
-	    ValidateTable(metaTable);
-	    table = (ITable) Activator.CreateInstance(typeof(Table<>).MakeGenericType(new Type[] { metaTable.RowType.Type }), BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance, null, new object[] { this, metaTable }, null);
-	    this.tables.Add(metaTable, table);
-	  }
-	  return table;
-	}
+```csharp
+private ITable GetTable(MetaTable metaTable)
+{
+  ITable table;
+  if (!this.tables.TryGetValue(metaTable, out table))
+  {
+    ValidateTable(metaTable);
+    table = (ITable) Activator.CreateInstance(typeof(Table<>).MakeGenericType(new Type[] { metaTable.RowType.Type }), BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance, null, new object[] { this, metaTable }, null);
+    this.tables.Add(metaTable, table);
+  }
+  return table;
+}
+```
 
 这个方法中，先看看tables这个dictionary里有没有对应的key，没有就反射create一个，再把它加到dictionary里。
 
