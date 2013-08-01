@@ -5,4 +5,6 @@ permalink: /:year/:month/:day/:title.html
 timezone: Etc./UTC
 paginate: 10
 paginate_path: page//:num
-markdown: rdiscount
+markdown: redcarpet
+redcarpet:
+  extensions: ["tables"]
