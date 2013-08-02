@@ -108,6 +108,7 @@ ul.posts span {
 
 .container .header h1.title {
   display: inline-block;
+  font-size: 1.4em;
   margin-bottom: 2em;
 }
 
@@ -165,6 +166,10 @@ ul.posts span {
 /*
 /*****************************************************************************/
 
+.post_header h2 {
+  font-size: 1.2em;
+}
+
 /* standard */
 .post pre {
   border: 1px solid #ddd;
@@ -200,6 +205,11 @@ ul.posts span {
 .pagination li {
   list-style-type: none;
   display:inline;
+}
+
+.post_tags {
+  margin-bottom: 2em;
+  border-bottom: 1px solid #eeeeee;
 }
 
 .post_tags ul {
