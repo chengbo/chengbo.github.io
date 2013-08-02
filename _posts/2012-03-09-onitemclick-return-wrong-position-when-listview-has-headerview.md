@@ -14,87 +14,87 @@ tags:
 
 当给[ListView][1]加了一个HeaderView后（代码如下），我们发现，[onItemClick][2]方法里的`position`参数的值不是我们所期望的，比如点击ListView的第一行，我们期望的`position`是0，可是实际上却是1，也就是说，它是从Header而不是从第一行开始计数的。
 
-    
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-    	super.onCreate(savedInstanceState);
-    
-    	setContentView(R.layout.home);
-    
-    	mAdapter = new MyAdapter(this);
-    
-    	mListView = (ListView) findViewById(R.id.list);
-    	mListView.addHeaderView(getLayoutInflater().inflate(R.layout.list_header));
-    	mListView.setAdapter(mAdapter);
-    	mListView.setOnClickListener(this);
-    }
-    
-    @Override
-    public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-    	doSomething(mAdapter.getItem(position));
-    }
+```java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
 
+    setContentView(R.layout.home);
+
+    mAdapter = new MyAdapter(this);
+
+    mListView = (ListView) findViewById(R.id.list);
+    mListView.addHeaderView(getLayoutInflater().inflate(R.layout.list_header));
+    mListView.setAdapter(mAdapter);
+    mListView.setOnClickListener(this);
+}
+
+@Override
+public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+    doSomething(mAdapter.getItem(position));
+}
+```
 
 Google了下，发现有个老外issue过一个[bug](http://code.google.com/p/android/issues/detail?id=4197)，和我遇到的问题一样，不过这个bug被RomainGuy reject掉了，理由是，你用错了，请用[getAdapter][3]。这回答的太简洁了，完全没法理解，所以只好又去仔细研究ListView的代码，终于领会他的意思了。把其中[addHeaderView][4]和[setAdapter][5]方法贴下来
 
-    
-    /**
-     * Add a fixed view to appear at the top of the list. If addHeaderView is
-     * called more than once, the views will appear in the order they were
-     * added. Views added using this call can take focus if they want.
-     * <p>
-     * NOTE: Call this before calling setAdapter. This is so ListView can wrap
-     * the supplied cursor with one that that will also account for header
-     * views.
-     *
-     * @param v The view to add.
-     * @param data Data to associate with this view
-     * @param isSelectable whether the item is selectable
-     */
-    public void addHeaderView(View v, Object data, boolean isSelectable) {
-        if (mAdapter != null) {
-            throw new IllegalStateException(
-                    "Cannot add header view to list -- setAdapter has already been called.");
-        }
-    
-        FixedViewInfo info = new FixedViewInfo();
-        info.view = v;
-        info.data = data;
-        info.isSelectable = isSelectable;
-        mHeaderViewInfos.add(info);
-    }
-    
-    /**
-     * Sets the data behind this ListView.
-     *
-     * The adapter passed to this method may be wrapped by a {@link WrapperListAdapter},
-     * depending on the ListView features currently in use. For instance, adding
-     * headers and/or footers will cause the adapter to be wrapped.
-     *
-     * @param adapter The ListAdapter which is responsible for maintaining the
-     *        data backing this list and for producing a view to represent an
-     *        item in that data set.
-     *
-     * @see #getAdapter()
-     */
-    @Override
-    public void setAdapter(ListAdapter adapter) {
-        if (null != mAdapter) {
-            mAdapter.unregisterDataSetObserver(mDataSetObserver);
-        }
-    
-        resetList();
-        mRecycler.clear();
-    
-        if (mHeaderViewInfos.size() > 0|| mFooterViewInfos.size() > 0) {
-            mAdapter = new HeaderViewListAdapter(mHeaderViewInfos, mFooterViewInfos, adapter);
-        } else {
-            mAdapter = adapter;
-        }
-    
-        //其它的一些代码这里省略之...
+```java
+/**
+ * Add a fixed view to appear at the top of the list. If addHeaderView is
+ * called more than once, the views will appear in the order they were
+ * added. Views added using this call can take focus if they want.
+ * <p>
+ * NOTE: Call this before calling setAdapter. This is so ListView can wrap
+ * the supplied cursor with one that that will also account for header
+ * views.
+ *
+ * @param v The view to add.
+ * @param data Data to associate with this view
+ * @param isSelectable whether the item is selectable
+ */
+public void addHeaderView(View v, Object data, boolean isSelectable) {
+    if (mAdapter != null) {
+        throw new IllegalStateException(
+                "Cannot add header view to list -- setAdapter has already been called.");
     }
 
+    FixedViewInfo info = new FixedViewInfo();
+    info.view = v;
+    info.data = data;
+    info.isSelectable = isSelectable;
+    mHeaderViewInfos.add(info);
+}
+
+/**
+ * Sets the data behind this ListView.
+ *
+ * The adapter passed to this method may be wrapped by a {@link WrapperListAdapter},
+ * depending on the ListView features currently in use. For instance, adding
+ * headers and/or footers will cause the adapter to be wrapped.
+ *
+ * @param adapter The ListAdapter which is responsible for maintaining the
+ *        data backing this list and for producing a view to represent an
+ *        item in that data set.
+ *
+ * @see #getAdapter()
+ */
+@Override
+public void setAdapter(ListAdapter adapter) {
+    if (null != mAdapter) {
+        mAdapter.unregisterDataSetObserver(mDataSetObserver);
+    }
+
+    resetList();
+    mRecycler.clear();
+
+    if (mHeaderViewInfos.size() > 0|| mFooterViewInfos.size() > 0) {
+        mAdapter = new HeaderViewListAdapter(mHeaderViewInfos, mFooterViewInfos, adapter);
+    } else {
+        mAdapter = adapter;
+    }
+
+    //其它的一些代码这里省略之...
+}
+```
 
 从代码和注释里都可以很清楚的得知，`addHeaderView`一定要在`setAdapter`之前调用，如果不这样做，`addHeaderView`会抛出一个异常。Android为什么要这样？这是因为，在`setAdapter`的时候，会针对我遇到的这种情况（也就是添加Header后`position`不正确的这种情况）做些特殊的处理。`setAdapter`在内部判断了当前ListView是否有Header或者Footer，如果没有，就直接使用参数传进来的adapter；如果有，则用一个decorated的`HeaderViewListAdapter`来替换参数。这个`HeaderViewListAdapter`的使命，就是排除Header和Footer，让`position`（当然也包括[getItem][6], [getItemId][7]）等方法的`position`参数）正确返回。
 
@@ -102,12 +102,12 @@ Google了下，发现有个老外issue过一个[bug](http://code.google.com/p/an
 
 把onItemClick改成下面这样，就可以了
 
-    
-    @Override
-    public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-    	doSomething(parent.getAdapter().getItem(position));
-    }
-
+```java
+@Override
+public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+    doSomething(parent.getAdapter().getItem(position));
+}
+```
 
 本文由Roy最初发表于：[http://blog.chengbo.net/2012/03/09/onitemclick-return-wrong-position-when-listview-has-headerview.html](http://blog.chengbo.net/2012/03/09/onitemclick-return-wrong-position-when-listview-has-headerview.html)，你可以在保持文章完整和保留本声明的情况下转帖、分发和印刷等。
 
