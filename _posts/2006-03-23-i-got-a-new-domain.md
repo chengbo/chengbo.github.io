@@ -1,7 +1,7 @@
 ---
 author: chengbo
 comments: true
-date: 2006-03-22 18:03:17+00:00
+date: 2006-03-23 18:03:17+00:00
 layout: post
 title: 想要chengbo.net这个域名已经很久了
 ---

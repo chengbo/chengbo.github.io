@@ -1,7 +1,7 @@
 ---
 author: chengbo
 comments: true
-date: 2005-12-11 20:12:13+00:00
+date: 2005-12-12 20:12:13+00:00
 layout: post
 title: 腾讯推出的新版QQ空间
 ---

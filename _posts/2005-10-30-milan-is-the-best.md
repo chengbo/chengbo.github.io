@@ -1,7 +1,7 @@
 ---
 author: chengbo
 comments: true
-date: 2005-10-29 22:10:14+00:00
+date: 2005-10-30 22:10:14+00:00
 layout: post
 title: 米兰是最强的
 ---

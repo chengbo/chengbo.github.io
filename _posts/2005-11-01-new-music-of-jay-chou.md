@@ -1,7 +1,7 @@
 ---
 author: chengbo
 comments: true
-date: 2005-10-31 23:11:37+00:00
+date: 2005-11-01 23:11:37+00:00
 layout: post
 title: 周杰伦 -《11月的萧邦》
 ---

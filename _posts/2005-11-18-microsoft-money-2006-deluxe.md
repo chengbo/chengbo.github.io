@@ -1,7 +1,7 @@
 ---
 author: chengbo
 comments: true
-date: 2005-11-17 21:11:19+00:00
+date: 2005-11-18 21:11:19+00:00
 layout: post
 title: Microsoft Money 2006 deluxe
 ---

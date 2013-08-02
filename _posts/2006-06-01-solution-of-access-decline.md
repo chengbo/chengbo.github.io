@@ -1,7 +1,7 @@
 ---
 author: chengbo
 comments: true
-date: 2006-05-31 17:06:41+00:00
+date: 2006-06-01 17:06:41+00:00
 layout: post
 title: 双击U盘出现“拒绝访问”的解决方法
 ---

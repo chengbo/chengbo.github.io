@@ -1,7 +1,7 @@
 ---
 author: chengbo
 comments: true
-date: 2005-12-11 19:12:39+00:00
+date: 2005-12-12 19:12:39+00:00
 layout: post
 title: 西华大学你真的会西去吗?
 ---

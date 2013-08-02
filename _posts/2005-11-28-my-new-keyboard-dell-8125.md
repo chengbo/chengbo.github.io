@@ -1,7 +1,7 @@
 ---
 author: chengbo
 comments: true
-date: 2005-11-27 22:11:57+00:00
+date: 2005-11-28 22:11:57+00:00
 layout: post
 title: 易趣上买的键盘终于到了
 ---

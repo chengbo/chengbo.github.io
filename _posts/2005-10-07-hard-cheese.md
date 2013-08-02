@@ -1,7 +1,7 @@
 ---
 author: chengbo
 comments: true
-date: 2005-10-06 22:10:06+00:00
+date: 2005-10-07 22:10:06+00:00
 layout: post
 title: 昨天真倒霉
 ---

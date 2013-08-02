@@ -1,7 +1,7 @@
 ---
 author: chengbo
 comments: true
-date: 2013-05-16 23:35:36+00:00
+date: 2013-05-17 23:35:36+00:00
 layout: post
 title: Android Studio：为Android定制的IDE
 categories:

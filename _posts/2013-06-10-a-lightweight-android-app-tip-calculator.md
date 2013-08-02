@@ -1,7 +1,7 @@
 ---
 author: chengbo
 comments: true
-date: 2013-06-09 22:55:30+00:00
+date: 2013-06-10 22:55:30+00:00
 layout: post
 title: '一个轻量级的Android App: Tip Calculator'
 categories:

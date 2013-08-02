@@ -1,7 +1,7 @@
 ---
 author: chengbo
 comments: true
-date: 2006-02-04 16:02:50+00:00
+date: 2006-02-05 16:02:50+00:00
 layout: post
 title: 今天上工了
 ---

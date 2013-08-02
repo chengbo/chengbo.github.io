@@ -1,7 +1,7 @@
 ---
 author: chengbo
 comments: true
-date: 2005-11-20 22:11:13+00:00
+date: 2005-11-21 22:11:13+00:00
 layout: post
 title: 刚捐助了Maxthon几块钱
 ---

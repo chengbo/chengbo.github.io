@@ -1,7 +1,7 @@
 ---
 author: chengbo
 comments: true
-date: 2006-03-20 21:03:15+00:00
+date: 2006-03-21 21:03:15+00:00
 layout: post
 title: 心情极度压抑
 ---

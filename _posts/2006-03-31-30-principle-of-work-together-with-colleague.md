@@ -1,7 +1,7 @@
 ---
 author: chengbo
 comments: true
-date: 2006-03-30 21:03:25+00:00
+date: 2006-03-31 21:03:25+00:00
 layout: post
 title: 学会和同事相处的30个原则
 ---
