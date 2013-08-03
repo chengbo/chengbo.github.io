@@ -1,7 +1,7 @@
 ---
 author: chengbo
 comments: true
-date: 2007-02-14 10:48:16+00:00
+date: 2007-02-15 10:48:16+00:00
 layout: post
 title: Gmail被封掉时的访问方法
 ---
