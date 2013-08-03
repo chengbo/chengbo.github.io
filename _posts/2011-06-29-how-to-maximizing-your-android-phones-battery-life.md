@@ -10,7 +10,7 @@ tags:
 - Android
 ---
 
-![](http://blog.chengbo.net/wp-content/uploads/2011/06/android.logo_.jpg)
+![](http://static.chengbo.net/images/2011/06/android.logo_.jpg)
 
 很多朋友抱怨Android手机耗电恐怖，其实我刚[入手我的i9003](http://blog.chengbo.net/2011/06/15/my-new-mobile-samsung-i9003.html)的时候，也被他恐怖的耗电量吓了一跳，睡觉之前还是60%，第二天早上起床却发现手机已经耗尽了所有电量，自动关机了。其实这也不能完全怪Android，它耗电在于几个方面，同样还是和ios做对比：
 

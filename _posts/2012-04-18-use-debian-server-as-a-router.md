@@ -106,7 +106,7 @@ DNS没有用电信分配给我的，是因为不想看电信强行插入的广�
 
 最后，我家网络的结构如下图
 
-[![home network](http://blog.chengbo.net/wp-content/uploads/2012/04/home-network-300x192.png)](http://blog.chengbo.net/wp-content/uploads/2012/04/home-network.png)
+[![home network](http://static.chengbo.net/images/2012/04/home-network.png)](http://static.chengbo.net/images/2012/04/home-network.png)
 
 // TODO: 此文还需添加Debian重启后自动配置USB网卡，拨号，NAT的内容
 
