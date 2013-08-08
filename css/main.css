@@ -101,6 +101,10 @@ ul.posts span {
   line-height: 1.5em;
 }
 
+.container .header {
+  position: relative;
+}
+
 .container .header a {
   font-weight: bold;
   text-decoration: none;
@@ -127,6 +131,13 @@ ul.posts span {
 
 .container .header a.extra:hover {
   color: #000;
+}
+
+.container .header .search_box {
+  position: absolute;
+  top: -1.5em;
+  right: 0;
+  width: 300px;
 }
 
 .container .meta {
