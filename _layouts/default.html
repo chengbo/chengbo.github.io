@@ -3,7 +3,7 @@
     <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>{{ page.title }}</title>
+      <title>{{ page.title }}{% if paginator.total_pages and paginator.page != 1 %} | Page {{ paginator.page }}/{{ paginator.total_pages }}{% endif %}</title>
       <meta name="viewport" content="width=device-width">
 
       <link rel="alternate" type="application/rss+xml" title="{{ site.title }} Feed" href="{{ site.link }}/rss.xml" />
