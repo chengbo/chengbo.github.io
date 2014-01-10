@@ -132,13 +132,6 @@ ul.posts span {
   color: #000;
 }
 
-.container .header .search_box {
-  position: absolute;
-  top: -1.5em;
-  right: 0;
-  width: 300px;
-}
-
 .container .meta {
   color: #aaa;
 }
