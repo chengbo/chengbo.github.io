@@ -31,3 +31,29 @@
 .highlight .sr { color: #a31515 } /* Literal.String.Regex */
 .highlight .s1 { color: #a31515 } /* Literal.String.Single */
 .highlight .ss { color: #a31515 } /* Literal.String.Symbol */
+
+pre {
+  padding: 5px;
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+  margin-bottom: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  background-color: #eeeeee;
+  overflow: auto;
+  width: auto;
+  width: 650px !ie7;
+  padding-bottom: 20px !ie7;
+  max-height: 600px;
+  font-size: 100%;
+}
+
+code {
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+  background-color: #eeeeee;
+}
+
+p code {
+  padding: 1px 5px 1px 5px;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+}
