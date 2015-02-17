@@ -1,0 +1,4 @@
+title = "Inspiration from life"
+baseurl = "http://blog.chengbo.net"
+uglyurls = true
+Paginate = 10
