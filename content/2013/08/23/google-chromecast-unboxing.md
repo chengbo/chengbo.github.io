@@ -17,29 +17,29 @@ Chromecast是Google于今年7月24号发布的一个小型流媒体播放器，�
 
 Chromecast的包装很简单，小小的白色盒子再加上一些蓝色的点缀，非常符合Google一向简约的风格。
 
-![](http://static.chengbo.net/images/2013/08/chromecast/01.jpg)
+![](/images/2013/08/chromecast/01.jpg)
 
 背面上的四个图标表示Chromecast支持Chrome浏览器，Youtube，Netflix，Google Play。
 
-![](http://static.chengbo.net/images/2013/08/chromecast/02.jpg)
+![](/images/2013/08/chromecast/02.jpg)
 
-![](http://static.chengbo.net/images/2013/08/chromecast/03.jpg)
+![](/images/2013/08/chromecast/03.jpg)
 
-![](http://static.chengbo.net/images/2013/08/chromecast/04.jpg)
+![](/images/2013/08/chromecast/04.jpg)
 
 Chromecast静静地躺在盒子里
 
-![](http://static.chengbo.net/images/2013/08/chromecast/05.jpg)
+![](/images/2013/08/chromecast/05.jpg)
 
-![](http://static.chengbo.net/images/2013/08/chromecast/06.jpg)
+![](/images/2013/08/chromecast/06.jpg)
 
-![](http://static.chengbo.net/images/2013/08/chromecast/07.jpg)
+![](/images/2013/08/chromecast/07.jpg)
 
 使用Mini USB接口供电，包装里有附带一根USB转Mini USB线
 
-![](http://static.chengbo.net/images/2013/08/chromecast/08.jpg)
+![](/images/2013/08/chromecast/08.jpg)
 
-![](http://static.chengbo.net/images/2013/08/chromecast/09.jpg)
+![](/images/2013/08/chromecast/09.jpg)
 
 安装好后，首先需要设置一下，安装[Chrome extension](https://chrome.google.com/webstore/detail/google-cast/boadgeojelhgndaghljhdicfkmllpafd)或者[Android app](https://play.google.com/store/apps/details?id=com.google.android.apps.chromecast.app)来设置，步骤很简单，跟着提示一步一步来即可。
 

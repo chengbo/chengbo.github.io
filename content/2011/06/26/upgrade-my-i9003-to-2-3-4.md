@@ -10,7 +10,7 @@ tags:
 - Android
 ---
 
-![](http://static.chengbo.net/images/2011/06/samsung_logo.png)
+![](/images/2011/06/samsung_logo.png)
 
 忍不住手痒，把我的i9003升级到了Gingerbread（Android 2.3.4），在这里把我的升级过程写下来，希望对大家有点帮助。
 	
