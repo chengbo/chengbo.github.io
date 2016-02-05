@@ -10,7 +10,7 @@ tags:
 - Blog
 ---
 
-[![jekyll](http://jekyllrb.com/img/logo-2x.png)](http://jekyllrb.com/)
+[![jekyll](//jekyllrb.com/img/logo-2x.png)](http://jekyllrb.com/)
 
 自从上次看小舟的blog，说他[抛弃了wordpress](http://xiaozhou.net/bye-wordpress-2013-07-22.html)，我就开始心痒痒了。折腾是我的一大爱好，我用的blog平台，从最开始blogcn，到自建movable type，再到wordpress，现在又到jekyll了。
 
