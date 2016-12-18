@@ -1,0 +1,3 @@
+<h2>{{post.meta['title']}}</h2>
+<div>tags: {{ post.meta['tags'] }}</div>
+<div>{{ post.to_markdown() | safe }}</div>

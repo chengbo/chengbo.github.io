@@ -1,0 +1,4 @@
+{% for p in posts %}
+<h2><a href="{{p.link()}}">{{p.meta['title']}}</a></h2>
+<p>Published at {{p.meta['date']}}</p>
+{% endfor %}
