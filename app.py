@@ -6,6 +6,7 @@ from flask import Flask, render_template
 from post import Post
 
 app = Flask(__name__)
+app.config['SITE_TITLE'] = 'Inspiration from life'
 
 
 def _parse_meta(meta):

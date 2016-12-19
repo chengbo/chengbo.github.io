@@ -1,4 +1,33 @@
-{% for p in posts %}
-<h2><a href="{{p.link()}}">{{p.meta['title']}}</a></h2>
-<p>Published at {{p.meta['date']}}</p>
-{% endfor %}
+{% include 'header.html' %}
+<body>
+  {% include 'sidebar.html' %}
+  <div class="content-wrapper">
+    <div class="content-wrapper__inner">
+      {% for p in posts %}
+      <article class="post-container post-container--single">
+        <header class="post-header">
+          <h2 class="post-title"><a href="{{p.permanent_link()}}">{{p.meta['title']}}</a></h2>
+          <div class="post-meta">
+            <time datetime="{{p.meta['date']}}" class="post-meta__date date">{{p.meta['date'].strftime('%Y-%m-%d')}}</time>
+            &#8226;
+            <span class="post-meta__tags tags">
+              {% for t in p.meta['tags'] %}
+              <a href="tags/{{t}}.html">{{t}}</a>
+              {% endfor %}
+            </span>
+          </div>
+        </header>
+
+        <section class="post tag-projects">
+          {{ p.to_markdown() | safe }}
+        </section>
+
+        <hr class="post-list__divider">
+
+      </article>
+      {% endfor %}
+      {% include 'footer.html' %}
+    </div>
+  </div>
+</body>
+</html>
