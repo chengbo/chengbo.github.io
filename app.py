@@ -23,9 +23,17 @@ def _read_post(file):
     return Post(meta, content)
 
 all_posts = []
+all_tags = {}
 for path in glob.iglob(app.root_path + '/content/**/*.md', recursive=True):
     post = _read_post(path)
     all_posts.append(post)
+    if 'tags' not in post.meta:
+        continue
+    for tag in post.meta['tags']:
+        if tag in all_tags:
+            all_tags[tag].append(post)
+        else:
+            all_tags[tag] = [post]
 
 all_posts.sort(key=lambda post: post.meta['date'], reverse=True)
 
@@ -40,6 +48,12 @@ def post(year, month, day, title):
     path = '{}/content/{}/{}/{}/{}.md'.format(app.root_path, year, month, day, title)
     post = _read_post(path)
     return render_template('post.html', post=post)
+
+
+@app.route('/tags/<tag>.html')
+def tag(tag):
+    posts = all_tags[tag]
+    return render_template('index.html', posts=posts)
 
 
 if __name__ == "__main__":
