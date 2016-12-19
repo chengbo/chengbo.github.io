@@ -1,3 +1,15 @@
-<h2>{{post.meta['title']}}</h2>
-<div>tags: {{ post.meta['tags'] }}</div>
-<div>{{ post.to_markdown() | safe }}</div>
+{% include 'header.html' %}
+<body>
+  {% include 'sidebar.html' %}
+  <div class="content-wrapper">
+    <div class="content-wrapper__inner">
+      <div class="post">
+          <h2>{{post.meta['title']}}</h2>
+          <span class="post-date">{{post.meta['date'].strftime('%Y-%m-%d')}}</span>
+          {{ post.to_markdown() | safe }}
+      </div>
+      {% include 'footer.html' %}
+    </div>
+  </div>
+</body>
+</html>
