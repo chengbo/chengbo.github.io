@@ -10,4 +10,4 @@ class Post:
         return markdown(self.content, extensions=['markdown.extensions.tables', 'markdown.extensions.fenced_code'])
 
     def permanent_link(self):
-        return '{}/{}.html'.format(self.meta['date'].strftime('%Y/%m/%d'), self.meta['file_name'])
+        return '/{}/{}.html'.format(self.meta['date'].strftime('%Y/%m/%d'), self.meta['file_name'])
