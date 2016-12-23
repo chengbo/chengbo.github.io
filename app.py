@@ -43,6 +43,13 @@ def posts():
     return render_template('index.html', posts=all_posts[:10])
 
 
+@app.route('/about')
+def about():
+    path = '{}/content/about/index.md'.format(app.root_path)
+    post = _read_post(path)
+    return render_template('post.html', post=post)
+
+
 @app.route('/<year>/<month>/<day>/<title>.html')
 def post(year, month, day, title):
     path = '{}/content/{}/{}/{}/{}.md'.format(app.root_path, year, month, day, title)
