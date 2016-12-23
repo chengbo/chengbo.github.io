@@ -39,7 +39,7 @@ all_posts.sort(key=lambda post: post.meta['date'], reverse=True)
 
 
 @app.route("/")
-def posts():
+def home():
     return render_template('index.html', posts=all_posts[:10])
 
 
