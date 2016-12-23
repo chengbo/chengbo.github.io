@@ -1,4 +1,21 @@
 {% include 'header.html' %}
+
+{% macro render_pagination(pagination) %}
+  <div class=pagination role="navigation">
+  {%- for page in pagination.iter_pages() %}
+    {% if page %}
+      {% if page != pagination.page %}
+        <a href="{{ url_for_other_page(page) }}">{{ page }}</a>
+      {% else %}
+        <strong>{{ page }}</strong>
+      {% endif %}
+    {% else %}
+      <span class=ellipsis>…</span>
+    {% endif %}
+  {%- endfor %}
+  </div>
+{% endmacro %}
+
 <body>
   {% include 'sidebar.html' %}
   <div class="content-wrapper">
@@ -26,6 +43,7 @@
 
       </article>
       {% endfor %}
+      {{ render_pagination(pagination) }}
       {% include 'footer.html' %}
     </div>
   </div>

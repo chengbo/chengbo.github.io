@@ -2,8 +2,10 @@ import os
 import re
 import yaml
 import glob
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 from post import Post
+from pagination import Pagination
+
 
 app = Flask(__name__)
 app.config['SITE_TITLE'] = 'Inspiration from life'
@@ -22,6 +24,15 @@ def _read_post(file):
     content = m.group(2)
     return Post(meta, content)
 
+
+def url_for_other_page(page):
+    if page == 1:
+        return url_for('home')
+    return url_for('page', page_number=page)
+
+
+app.jinja_env.globals['url_for_other_page'] = url_for_other_page
+
 all_posts = []
 all_tags = {}
 for path in glob.iglob(app.root_path + '/content/**/*.md', recursive=True):
@@ -38,9 +49,19 @@ for path in glob.iglob(app.root_path + '/content/**/*.md', recursive=True):
 all_posts.sort(key=lambda post: post.meta['date'], reverse=True)
 
 
-@app.route("/")
-def home():
-    return render_template('index.html', posts=all_posts[:10])
+@app.route('/', endpoint='home')
+@app.route('/pages/', defaults={'page_number': 1})
+@app.route('/pages/<int:page_number>')
+def page(page_number=1):
+    total_count = len(all_posts)
+    page_size = 10
+    posts = all_posts[(page_number - 1) * page_size:page_number * page_size]
+    if not posts:
+        return render_template('404.html'), 404
+    pagination = Pagination(page_number, page_size, total_count)
+    return render_template('index.html',
+                           posts=posts,
+                           pagination=pagination)
 
 
 @app.route('/about')
