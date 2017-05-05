@@ -16,9 +16,9 @@ tags:
 
 _由 [Xavier Ducrohet](https://plus.google.com/109385828142935151413), Tor Norbye, Katherine Chou发表_
 
-![](/images/2013/05/google-io-lockup-2.png)
+![](/static/images/2013/05/google-io-lockup-2.png)
 
-![](/images/2013/05/Studio_table.png)
+![](/static/images/2013/05/Studio_table.png)
 
 今天在Google I/O上，我们发布了一个专为Android开发者准备的新IDE：Android Studio，它可以免费使用，你现在就可以试试它的早期预览版。
 
@@ -30,7 +30,7 @@ _由 [Xavier Ducrohet](https://plus.google.com/109385828142935151413), Tor Norby
 
 这个新的构建系统不仅可以让你在IDE中构建项目，它同样也支持持续集成服务器。在整个工作流程中，N多杂七杂八的工具旁，你可以更方便的管理你复杂的构建配置项。如想了解更多，请查看[预览版文档](http://tools.android.com/tech-docs/new-build-system/user-guide)。
 
-![](/images/2013/05/laptop600.png)
+![](/static/images/2013/05/laptop600.png)
 
 ### 强大的代码编辑
 
@@ -40,11 +40,11 @@ Android Studio包括一个强大的代码编辑器，这个编辑器基于Intell
 
 静态代码分析可以让你更快的定位bug。在由IntelliJ IDEA提供的成千上万inspection的基础上，我们又加了一些定制化的inspection。比如，我们为Android API添加了一些元数据，这些元数据指示哪些方法可以返回null，而哪些方法又不可以；某个方法接受哪些常量值，等等。Android Studio就可以通过它们来分析你的代码，找出潜在的错误。
 
-![](/images/2013/05/ide-refactor.png)
+![](/static/images/2013/05/ide-refactor.png)
 
-![](/images/2013/05/ide-smart.png)
+![](/static/images/2013/05/ide-smart.png)
 
-![](/images/2013/05/ide-resourcelookup2.png)
+![](/static/images/2013/05/ide-resourcelookup2.png)
 
 ### 更平滑、更丰富的图形界面
 

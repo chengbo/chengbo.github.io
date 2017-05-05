@@ -89,9 +89,9 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 
-@app.route('/images/<path:path>')
-def send_js(path):
-    return send_from_directory('static/images', path)
+@app.route('/static/<path:path>')
+def send_static(path):
+    return send_from_directory('static', path)
 
 
 if __name__ == "__main__":
