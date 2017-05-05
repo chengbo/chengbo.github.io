@@ -50,8 +50,8 @@ all_posts.sort(key=lambda post: post.meta['date'], reverse=True)
 
 
 @app.route('/', endpoint='home')
-@app.route('/pages/', defaults={'page_number': 1})
-@app.route('/pages/<int:page_number>')
+@app.route('/page/', defaults={'page_number': 1})
+@app.route('/page/<int:page_number>')
 def page(page_number=1):
     total_count = len(all_posts)
     page_size = 10
