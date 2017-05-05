@@ -2,7 +2,7 @@ import os
 import re
 import yaml
 import glob
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, send_from_directory
 from post import Post
 from pagination import Pagination
 
@@ -82,6 +82,11 @@ def post(year, month, day, title):
 def tag(tag):
     posts = all_tags[tag]
     return render_template('index.html', posts=posts)
+
+
+@app.route('/images/<path:path>')
+def send_js(path):
+    return send_from_directory('static/images', path)
 
 
 if __name__ == "__main__":
