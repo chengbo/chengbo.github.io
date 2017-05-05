@@ -41,6 +41,7 @@ for path in glob.iglob(app.root_path + '/content/**/*.md', recursive=True):
     if 'tags' not in post.meta:
         continue
     for tag in post.meta['tags']:
+        tag = tag.lower()
         if tag in all_tags:
             all_tags[tag].append(post)
         else:
@@ -80,8 +81,12 @@ def post(year, month, day, title):
 
 @app.route('/tag/<tag>')
 def tag(tag):
-    posts = all_tags[tag]
-    return render_template('index.html', posts=posts)
+    tag = tag.lower()
+    if tag in all_tags:
+        posts = all_tags[tag]
+        return render_template('index.html', posts=posts)
+    else:
+        return render_template('404.html'), 404
 
 
 @app.errorhandler(404)

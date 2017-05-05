@@ -29,7 +29,7 @@
             &#8226;
             <span class="post-meta__tags tags">
               {% for t in p.meta['tags'] %}
-              <a href="/tag/{{t}}">{{t}}</a>
+              <a href="/tag/{{t|lower}}">{{t}}</a>
               {% endfor %}
             </span>
           </div>
