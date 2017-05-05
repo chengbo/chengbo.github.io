@@ -84,6 +84,11 @@ def tag(tag):
     return render_template('index.html', posts=posts)
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+
 @app.route('/images/<path:path>')
 def send_js(path):
     return send_from_directory('static/images', path)
