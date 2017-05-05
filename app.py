@@ -78,7 +78,7 @@ def post(year, month, day, title):
     return render_template('post.html', post=post)
 
 
-@app.route('/tags/<tag>.html')
+@app.route('/tag/<tag>')
 def tag(tag):
     posts = all_tags[tag]
     return render_template('index.html', posts=posts)
