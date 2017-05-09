@@ -74,9 +74,13 @@ def about():
 
 @app.route('/<year>/<month>/<day>/<title>.html')
 def post(year, month, day, title):
-    path = '{}/content/{}/{}/{}/{}.md'.format(app.root_path, year, month, day, title)
-    post = _read_post(path)
-    return render_template('post.html', post=post)
+    path = '{}/content/{}/{}/{}/{}.md'.format(app.root_path,
+                                              year, month, day, title)
+    try:
+        post = _read_post(path)
+        return render_template('post.html', post=post)
+    except FileNotFoundError:
+        return render_template('404.html'), 404
 
 
 @app.route('/tag/<tag>')
