@@ -1,15 +1,28 @@
-{% include 'header.html' %}
-<body>
-  {% include 'sidebar.html' %}
-  <div class="content-wrapper">
-    <div class="content-wrapper__inner">
-      <div class="post">
-          <h2>{{post.meta['title']}}</h2>
-          <span class="post-date">{{post.meta['date'].strftime('%Y-%m-%d')}}</span>
-          {{ post.to_markdown() | safe }}
+{% extends 'layout.html' %}
+{% block title %}{{post.meta['title']}} - {{ config['SITE_TITLE'] }}{% endblock %}
+{% block head %}
+{{ super() }}
+  <meta name="author" content="Bo Cheng">
+  <link rel="canonical" href="{{ config['BASE_URL'] }}{{post.permanent_link()}}">
+{% endblock %}
+{% block content %}
+  <article class="post post-container post-container--single" itemscope itemtype="http://schema.org/CreativeWork">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="headline">{{post.meta['title']}}</h1>
+      <div class="post-meta">
+        <time datetime="{{post.meta['date']}}" class="post-meta__date date" itemprop="datePublished">
+          {{post.meta['date'].strftime('%Y-%m-%d')}}
+        </time>
+        &#8226;
+        <span class="post-meta__tags tags" itemprop="keywords">
+          {% for t in post.meta['tags'] %}
+          <a href="/tag/{{t|lower}}" rel="tag">{{t}}</a>
+          {% endfor %}
+        </span>
       </div>
-      {% include 'footer.html' %}
-    </div>
-  </div>
-</body>
-</html>
+    </header>
+    <section class="post tag-projects" itemprop="text">
+    {{ post.to_markdown() | safe }}
+    </section>
+  </article>
+{% endblock %}

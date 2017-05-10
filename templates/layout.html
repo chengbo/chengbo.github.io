@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  {% block head %}
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/uno.css')}}" />
+  <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+  <script src="{{url_for('static', filename='js/main.js')}}"></script>
+  {% endblock %}
+</head>
+<body>
+  {% include 'sidebar.html' %}
+  <div class="content-wrapper">
+    <div class="content-wrapper__inner">
+      {% block content %}{% endblock %}
+      {% include 'footer.html' %}
+    </div>
+  </div>
+</body>
+</html>

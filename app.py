@@ -9,6 +9,7 @@ from pagination import Pagination
 
 app = Flask(__name__)
 app.config['SITE_TITLE'] = 'Inspiration from life'
+app.config['BASE_URL'] = 'https://blog.chengbo.net'
 
 
 def _parse_meta(meta):
