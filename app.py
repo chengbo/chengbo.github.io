@@ -94,6 +94,12 @@ def tag(tag):
         return render_template('404.html'), 404
 
 
+@app.route('/sitemap.xml')
+def sitemap():
+    return render_template('sitemap.xml', posts=all_posts), 200, \
+        {'Content-Type': 'application/xml'}
+
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
