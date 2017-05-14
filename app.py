@@ -2,7 +2,8 @@ import os
 import re
 import yaml
 import glob
-from flask import Flask, render_template, url_for, send_from_directory
+from flask import (Flask, render_template, url_for, send_from_directory,
+                   make_response)
 from post import Post
 from pagination import Pagination
 
@@ -61,9 +62,12 @@ def page(page_number=1):
     if not posts:
         return render_template('404.html'), 404
     pagination = Pagination(page_number, page_size, total_count)
-    return render_template('index.html',
-                           posts=posts,
-                           pagination=pagination)
+    resp = make_response(render_template('index.html',
+                                         posts=posts,
+                                         pagination=pagination), 200)
+    if page_number != 1:
+        resp.headers['X-Robots-Tag'] = 'noindex'
+    return resp
 
 
 @app.route('/about')
@@ -100,7 +104,8 @@ def tag(tag):
     tag = tag.lower()
     if tag in all_tags:
         posts = all_tags[tag]
-        return render_template('index.html', posts=posts)
+        return render_template('index.html', posts=posts), 200, \
+            {'X-Robots-Tag': 'noindex'}
     else:
         return render_template('404.html'), 404
 
