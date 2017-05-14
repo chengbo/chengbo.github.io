@@ -84,6 +84,17 @@ def post(year, month, day, title):
         return render_template('404.html'), 404
 
 
+@app.route('/<year>/<month>/<day>/<title>.amp')
+def amp_post(year, month, day, title):
+    path = '{}/content/{}/{}/{}/{}.md'.format(app.root_path,
+                                              year, month, day, title)
+    try:
+        post = _read_post(path)
+        return render_template('amp/post.html', post=post)
+    except FileNotFoundError:
+        return render_template('404.html'), 404
+
+
 @app.route('/tag/<tag>')
 def tag(tag):
     tag = tag.lower()

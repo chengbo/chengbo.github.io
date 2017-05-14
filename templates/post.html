@@ -3,7 +3,8 @@
 {% block head %}
 {{ super() }}
   <meta name="author" content="Bo Cheng">
-  <link rel="canonical" href="{{ config['BASE_URL'] }}{{post.permanent_link()}}">
+  <link rel="canonical" href="{{ config['BASE_URL'] }}{{ post.permanent_link() }}">
+  <link rel="amphtml" href="{{ config['BASE_URL'] }}{{ post.amp_link() }}">
 {% endblock %}
 {% block content %}
   <article class="post post-container post-container--single" itemscope itemtype="http://schema.org/CreativeWork">
