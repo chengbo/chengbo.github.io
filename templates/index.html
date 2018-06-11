@@ -1,53 +1,39 @@
-{% include 'header.html' %}
+{% extends "layout.html" %}
 
-{% macro render_pagination(pagination) %}
-  <div class=pagination role="navigation">
-  {%- for page in pagination.iter_pages() %}
-    {% if page %}
-      {% if page != pagination.page %}
-        <a href="{{ url_for_other_page(page) }}">{{ page }}</a>
-      {% else %}
-        <strong>{{ page }}</strong>
-      {% endif %}
-    {% else %}
-      <span class=ellipsis>…</span>
+{% block head %}
+<title>{{ config['SITE_TITLE'] }}</title>
+<link rel="canonical" href="{{ config['BASE_URL'] }}">
+<meta name="description" content="一个理科生憋了半天写出来的没人看的东西"/>
+{% endblock %}
+
+{% block content %}
+<main class="content" role="main">
+  {% for p in posts %}
+  <article class="preview">
+    <header>
+      <h1 class="post-title"><a href="{{p.permanent_link()}}">{{p.meta['title']}}</a></h1>
+      <div class="post-meta"><time datetime="{{p.meta['date']}}">{{p.meta['date'].strftime('%Y-%m-%d')}}</time></div>
+    </header>
+    <section class="post-excerpt">
+      <a class="excerptlink" href="{{p.permanent_link()}}"><p>{{ p.to_markdown() | safe | striptags| truncate(300) }}&hellip;</p></a>
+      <p class="readmore"><a href="{{p.permanent_link()}}">Keep reading <i class="fa fa-angle-double-right" style="padding-left: 5px;"></i></a></p>
+    </section>
+  </article>
+  {% endfor %}
+
+  {% macro render_pagination(pagination) %}
+  <nav class="pagination" role="pagination">
+    {% if pagination.has_prev %}
+      <a class="newer-posts" href="{{url_for_other_page(pagination.prev_page)}}"><i class="fa fa-chevron-circle-left"></i> Newer</a>
     {% endif %}
-  {%- endfor %}
-  </div>
-{% endmacro %}
-
-<body>
-  {% include 'sidebar.html' %}
-  <div class="content-wrapper">
-    <div class="content-wrapper__inner">
-      {% for p in posts %}
-      <article class="post-container post-container--single">
-        <header class="post-header">
-          <h2 class="post-title"><a href="{{p.permanent_link()}}">{{p.meta['title']}}</a></h2>
-          <div class="post-meta">
-            <time datetime="{{p.meta['date']}}" class="post-meta__date date">{{p.meta['date'].strftime('%Y-%m-%d')}}</time>
-            &#8226;
-            <span class="post-meta__tags tags">
-              {% for t in p.meta['tags'] %}
-              <a href="/tag/{{t|lower}}">{{t}}</a>
-              {% endfor %}
-            </span>
-          </div>
-        </header>
-
-        <section class="post tag-projects">
-          {{ p.to_markdown() | safe }}
-        </section>
-
-        <hr class="post-list__divider">
-
-      </article>
-      {% endfor %}
-      {% if pagination is defined %}
-      {{ render_pagination(pagination) }}
-      {% endif %}
-      {% include 'footer.html' %}
-    </div>
-  </div>
-</body>
-</html>
+    <span class="page-number">Page {{pagination.page}} of {{pagination.pages}}</span>
+    {% if pagination.has_next %}
+      <a class="older-posts" href="{{url_for_other_page(pagination.next_page)}}">Older <i class="fa fa-chevron-circle-right"></i></a>
+    {% endif %}
+  </nav>
+  {% endmacro %}
+  {% if pagination is defined %}
+  {{ render_pagination(pagination) }}
+  {% endif %}
+</main>
+{% endblock %}

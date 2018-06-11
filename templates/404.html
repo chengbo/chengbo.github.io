@@ -1,3 +1,25 @@
-<p>Not found</p>
+{% extends 'layout.html' %}
 
-<p><a href="/">Back to home</a></p>
+{% block head %}
+<title>404 Not Found - {{ config['SITE_TITLE'] }}</title>
+{% endblock %}
+
+{% block content %}
+<main class="content" role="main">
+
+  <article class="not-found">
+    <header>
+      <h1>Page Not Found</h1>
+    </header>
+
+    <section>
+      The page you requested could not be found.
+    </section>
+
+    <section>
+      <a href="/">Back to home.</a>
+    </section>
+  </article>
+
+</main>
+{% endblock %}

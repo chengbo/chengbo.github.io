@@ -28,7 +28,7 @@ def _read_post(file):
 
 
 def url_for_other_page(page):
-    if page == 1:
+    if page == 1 or page == -1:
         return url_for('home')
     return url_for('page', page_number=page)
 
