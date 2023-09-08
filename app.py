@@ -14,7 +14,7 @@ app.config['BASE_URL'] = 'https://blog.chengbo.net'
 
 
 def _parse_meta(meta):
-    return yaml.load(meta)
+    return yaml.safe_load(meta)
 
 
 def _read_post(file):
